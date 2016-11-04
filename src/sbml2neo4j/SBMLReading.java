@@ -84,6 +84,11 @@ public class SBMLReading {
 								szUniprotIdList.add(szUniprotId);
 							}
 						}
+						
+						//remove the last empty space (end of the UniprotId string)
+						if (szUniprotIdFullString != null && szUniprotIdFullString.length() > 0 && szUniprotIdFullString.charAt(szUniprotIdFullString.length()-1)==' ' ) {
+							szUniprotIdFullString = szUniprotIdFullString.substring(0, szUniprotIdFullString.length()-1);
+							}
 					}
 				}
 
@@ -111,7 +116,7 @@ public class SBMLReading {
 					speciesHashMap.get(species.getId()).setProperty(
 							"Identifiers", szIdentifiers);
 					speciesHashMap.get(species.getId()).setProperty(
-							"UNIPROT_ID", szUniprotIdFullString);
+							"UniprotId", szUniprotIdFullString);
 				} else if (Recon2Graph.LabelTypes.Complex == speciesType) {
 					speciesHashMap.put(
 							species.getId(),
@@ -124,12 +129,12 @@ public class SBMLReading {
 					speciesHashMap.get(species.getId()).setProperty(
 							"Identifiers", szIdentifiers);
 					speciesHashMap.get(species.getId()).setProperty(
-							"UNIPROT_ID", szUniprotIdFullString);
+							"UniprotId", szUniprotIdFullString);
 
 					for (String eUniprotIdStr : szUniprotIdList) {
 						Node _node = Recon2Graph.getGraphInstance().createNode(
 								Recon2Graph.LabelTypes.ProteinCompound);
-						_node.setProperty("UNIPROT_ID", eUniprotIdStr);
+						_node.setProperty("UniprotId", eUniprotIdStr);
 						_node.createRelationshipTo(
 								speciesHashMap.get(species.getId()),
 								RelTypes.Part_Of);
