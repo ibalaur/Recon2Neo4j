@@ -15,13 +15,16 @@ The Recon2Neo4j Framework can be accessed online <a href="https://diseaseknowled
 A file with several Cypher query examples for the Recon2Neo4j Framework is available for download <a href="https://github.com/ibalaur/Recon2Neo4j/tree/master/sample%20queries"> here</a>. These queries can be extended to accommodate specific topics of interest. 
 
 ### For developers
-	The Recon2Neo4j Framework is freely available for non-commercial purposes and the java code used for data integration and mapping into the  framework is available <a href="https://github.com/ibalaur/Recon2Neo4j">here</a>.<br><br>
+
+The Recon2Neo4j Framework is freely available for non-commercial purposes and the java code used for data integration and mapping into the  framework is available <a href="https://github.com/ibalaur/Recon2Neo4j">here</a>.<br><br>
 	
 #### Requirements
+
  - Java 7 
  - Maven (tested with Maven 3.5)
 
 #### Install
+
 After cloning the repository and getting into its directory:
 
 `mvn clean`
@@ -34,7 +37,7 @@ The executable jar can be directly downloaded from the [Release page](https://gi
 
 If you have any suggestions or want to report a bug, don't hesitate to create an [issue](https://github.com/ibalaur/EpiGeNet/issues). Pull requests and all forms of contribution will be warmly welcomed.
 
-##Please cite our paper on this work
+## Please cite our paper on this work
 
 Balaur I., Mazein A., Saqi M., Lysenko A., Rawlings C.J. and Auffray C. (2016), <a href="http://bioinformatics.oxfordjournals.org.gate1.inist.fr/content/early/2017/01/05/bioinformatics.btw731.full">Recon2Neo4j: applying graph database technologies for managing comprehensive genome-scale networks</a>. <i>Bioinformatics</i>. 2016 Dec 19. pii: btw731. DOI: 10.1093/bioinformatics/btw731.
 
