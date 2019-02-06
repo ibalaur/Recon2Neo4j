@@ -9,6 +9,7 @@ The Recon2Neo4j Framework uses the neo4j graph platform for the management of da
 </table>
 
 ## A tutorial video is available [here](https://www.youtube.com/embed/te6EUVAddUY).
+<iframe width="420" height="315" src="https://www.youtube.com/embed/te6EUVAddUY" frameborder="0" allowfullscreen></iframe>
 
 ## How to access the EpiGeNet Framework
 The Recon2Neo4j Framework can be accessed online <a href="https://diseaseknowledgebase.etriks.org/metabolic/browser/"> here</a>.
