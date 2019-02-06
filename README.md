@@ -10,7 +10,7 @@ The Recon2Neo4j Framework uses the neo4j graph platform for the management of da
 
 ## A tutorial video is available [here](https://www.youtube.com/embed/te6EUVAddUY).
 
-## How to access the EpiGeNet Framework
+## How to access the Recon2Neo4j Framework
 The Recon2Neo4j Framework can be accessed online <a href="https://diseaseknowledgebase.etriks.org/metabolic/browser/"> here</a>.
 	
 A file with several Cypher query examples for the Recon2Neo4j Framework is available for download <a href="https://github.com/ibalaur/Recon2Neo4j/tree/master/sample%20queries"> here</a>. These queries can be extended to accommodate specific topics of interest. 
@@ -34,7 +34,7 @@ After cloning the repository and getting into its directory:
 
 ## How to contribute
 
-If you have any suggestions or want to report a bug, don't hesitate to create an [issue](https://github.com/ibalaur/EpiGeNet/issues). Pull requests and all forms of contribution will be warmly welcomed.
+If you have any suggestions or want to report a bug, don't hesitate to create an [issue](https://github.com/ibalaur/Recon2Neo4j/issues). Pull requests and all forms of contribution will be warmly welcomed.
 
 ## Please cite our paper on this work
 
@@ -58,6 +58,8 @@ Charles Auffray, [EISBM](http://www.eisbm.org/), Lyon, France - strategic advice
 
  - [eTRIKS](https://www.etriks.org/) 
  - [Disease Maps Project](http://disease-maps.org/) 
+ - [Protein Framework](https://github.com/ibalaur/ProteinFramework)
+ - [EpiGeNet](https://github.com/ibalaur/EpiGeNet)
 
 ## Acknowledgements
 This work has been supported by the Innovative Medicines Initiative Joint Undertaking under grant agreement no. IMI 115446 (eTRIKS), resources of which are composed of financial contribution from the European Union’s Seventh Framework Programme (FP7/2007-2013) and EFPIA companies.
