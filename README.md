@@ -7,12 +7,12 @@ The Recon2Neo4j Framework uses the neo4j graph platform for the management of da
 		<img src="metabolic_framework_context.jpg" style="width: 80%; height: 80%;">
 	</div> 
 
-## A quick overview available [here]("https://www.youtube.com/embed/te6EUVAddUY")
+## A quick overview available [here](https://www.youtube.com/embed/te6EUVAddUY).
 
 ## How to access the EpiGeNet Framework
 The Recon2Neo4j Framework can be accessed online <a href="https://diseaseknowledgebase.etriks.org/metabolic/browser/"> here</a>.
 	
-A file with several Cypher query examples for the Recon2Neo4j Framework is available for download <a href="metabolic_framework_sample_queries.docx"> here</a>. These queries can be extended to accommodate specific topics of interest. 
+A file with several Cypher query examples for the Recon2Neo4j Framework is available for download <a href="https://github.com/ibalaur/Recon2Neo4j/tree/master/sample%20queries"> here</a>. These queries can be extended to accommodate specific topics of interest. 
 
 ### For developers
 	The Recon2Neo4j Framework is freely available for non-commercial purposes and the java code used for data integration and mapping into the  framework is available <a href="https://github.com/ibalaur/Recon2Neo4j">here</a>.<br><br>
