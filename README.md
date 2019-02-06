@@ -5,7 +5,7 @@ The Recon2Neo4j Framework uses the neo4j graph platform for the management of da
 ## Graph database for human metabolic network 
 <table>
     <tr>
-      <td style="width: 200px;" align="center"><img src="/figure/metabolic_framework_context.jpg" width="130"/></td>
+      <td style="width: 400px;" align="center"><img src="/figure/metabolic_framework_context.jpg" width="300"/></td>
     </tr>
 </table>
 
