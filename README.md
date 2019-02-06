@@ -1,12 +1,10 @@
-# Recon2Neo4j
+# Recon2Neo4j - a graph database for the human metabolic network
 
 The Recon2Neo4j Framework uses the neo4j graph platform for the management of data on human metabolism. Specifically, it facilitates i) identification and ii) visualization of subnetworks of interest from the <a href="https://vmh.uni.lu/"> Human Metabolic Reconstruction</a> (Recon2, Thiele et al., Nat Biotech, 2013) by using the powerful neo4j CYPHER query language and neo4j functionality, and iii) export in <a href="http://sbml.org/Main_Page">SBML standard</a> and <a href="http://wiki.cytoscape.org/Cytoscape_User_Manual/Network_Formats">SIF</a> formats in order to be integrated and shared among community using well-estabilished platforms (e.g. <a href="http://www.celldesigner.org/">CellDesigner</a>,  <a href="https://www.yworks.com/en/products/yfiles/yed/">yEd</a>, <a href="http://www.cytoscape.org/">Cytoscape</a>, <a href="http://www.ndexbio.org/">NDEx</a>).
 
-## Graph database for human metabolic network 
 <table>
     <tr>
-      <td style="width: 200px;" align="center">The Recon2Neo4j Framework uses the neo4j graph platform for the management of data on human metabolism. Specifically, it facilitates i) identification and ii) visualization of subnetworks of interest from the <a href="https://vmh.uni.lu/"> Human Metabolic Reconstruction</a> (Recon2, Thiele et al., Nat Biotech, 2013) by using the powerful neo4j CYPHER query language and neo4j functionality, and iii) export in <a href="http://sbml.org/Main_Page">SBML standard</a> and <a href="http://wiki.cytoscape.org/Cytoscape_User_Manual/Network_Formats">SIF</a> formats in order to be integrated and shared among community using well-estabilished platforms (e.g. <a href="http://www.celldesigner.org/">CellDesigner</a>,  <a href="https://www.yworks.com/en/products/yfiles/yed/">yEd</a>, <a href="http://www.cytoscape.org/">Cytoscape</a>, <a href="http://www.ndexbio.org/">NDEx</a>).</td>
-	<td style="width: 200px;" align="center"><img src="/figure/metabolic_framework_context.jpg" width="150"/></td>
+	<td style="width: 300px;" align="center"><img src="/figure/metabolic_framework_context.jpg" width="250"/></td>
     </tr>
 </table>
 
