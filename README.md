@@ -17,7 +17,7 @@ A file with several Cypher query examples for the Recon2Neo4j Framework is avail
 
 ### For developers
 
-The Recon2Neo4j Framework is freely available for non-commercial purposes and the java code used for data integration and mapping into the  framework is available <a href="https://github.com/ibalaur/Recon2Neo4j">here</a>.<br><br>
+The Recon2Neo4j Framework is freely available for non-commercial purposes and the java code used for data integration and mapping into the  framework is available <a href="https://github.com/ibalaur/Recon2Neo4j">here</a>.
 	
 #### Requirements
 
