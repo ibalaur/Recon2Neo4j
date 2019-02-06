@@ -1,31 +1,27 @@
 # Recon2Neo4j
 
-The EpiGeNet framework is a graph database for storage and querying of conditional relationships between molecular (genetic and epigenetic) events observed at different stages of colorectal (CRC) oncogenesis. Data were i) extracted from <a href="http://statepigen.sci-sym.dcu.ie/index.php">StatEpigen</a>, a manually curated and annotated database, containing information on interdependencies between genetic and epigenetic signals, and specialized currently for CRC research, and ii) imported to our newly-developed EpiGeNet, which offers improved capability for management and visualization of data on molecular events specific to CRC initiation and progression
+The Recon2Neo4j Framework uses the neo4j graph platform for the management of data on human metabolism. Specifically, it facilitates i) identification and ii) visualization of subnetworks of interest from the <a href="https://vmh.uni.lu/"> Human Metabolic Reconstruction</a> (Recon2, Thiele et al., Nat Biotech, 2013) by using the powerful neo4j CYPHER query language and neo4j functionality, and iii) export in <a href="http://sbml.org/Main_Page">SBML standard</a> and <a href="http://wiki.cytoscape.org/Cytoscape_User_Manual/Network_Formats">SIF</a> formats in order to be integrated and shared among community using well-estabilished platforms (e.g. <a href="http://www.celldesigner.org/">CellDesigner</a>,  <a href="https://www.yworks.com/en/products/yfiles/yed/">yEd</a>, <a href="http://www.cytoscape.org/">Cytoscape</a>, <a href="http://www.ndexbio.org/">NDEx</a>).
+
+## Graph database for human metabolic network 
+<div align="left" >
+		<img src="metabolic_framework_context.jpg" style="width: 80%; height: 80%;">
+	</div> 
+
+## A quick overview
+<iframe width="420" height="315" src="https://www.youtube.com/embed/te6EUVAddUY" frameborder="0" allowfullscreen></iframe>
 
 ## How to access the EpiGeNet Framework
-The EpiGeNet Framework can be accessed online <a href="https://diseaseknowledgebase.etriks.org/epigenet/browser/"> here</a>
-
-A non-exhaustive file with Cypher query examples for the EpiGeNet Framework is available for download <a href="epigenet_framework_sample_queries.docx" download="epigenet_framework_sample_queries.docx"> here</a>.
+The Recon2Neo4j Framework can be accessed online <a href="https://diseaseknowledgebase.etriks.org/metabolic/browser/"> here</a>.
 	
+	A file with several Cypher query examples for the Recon2Neo4j Framework is available for download <a href="metabolic_framework_sample_queries.docx"> here</a>. These queries can be extended to accommodate specific topics of interest. 
 ### For developers
-The EpiGeNet Framework is freely available for non-commercial purposes and the java code used for data integration and mapping into the  framework is available <a href="https://github.com/ibalaur/EpiGeNet">here</a>.<br><br>
+	The Recon2Neo4j Framework is freely available for non-commercial purposes and the java code used for data integration and mapping into the  framework is available <a href="https://github.com/ibalaur/Recon2Neo4j">here</a>.<br><br>
 	
-## How to get Involved
-We would be happy to hear from your experience and for feedback, any issues/ suggestions on this, please contact us by email to <a href="mailto:ibalaur@eisbm.org">ibalaur@eisbm.org</a>.</p>
-
-##Please cite our paper on this work<
-<p> Balaur I., Saqi M., Barat A., Lysenko A., Mazein A., Rawlings C.J., Ruskin H.J. and Auffray, C. (2016), <a href="http://online.liebertpub.com/doi/10.1089/cmb.2016.0095">EpiGeNet: A Graph Database of Interdependencies Between Genetic and Epigenetic Events in Colorectal Cancer</a>, Journal of Computational Biology, September 2016, ePub(ahead of print). DOI: 0.1089/cmb.2016.0095.
-
-
-
-
-## Requirements
-
+#### Requirements
  - Java 7 
  - Maven (tested with Maven 3.5)
 
-## Install
-
+#### Install
 After cloning the repository and getting into its directory:
 
 `mvn clean`
@@ -38,15 +34,17 @@ The executable jar can be directly downloaded from the [Release page](https://gi
 
 If you have any suggestions or want to report a bug, don't hesitate to create an [issue](https://github.com/ibalaur/EpiGeNet/issues). Pull requests and all forms of contribution will be warmly welcomed.
 
+##Please cite our paper on this work
+
+Balaur I., Mazein A., Saqi M., Lysenko A., Rawlings C.J. and Auffray C. (2016), <a href="http://bioinformatics.oxfordjournals.org.gate1.inist.fr/content/early/2017/01/05/bioinformatics.btw731.full">Recon2Neo4j: applying graph database technologies for managing comprehensive genome-scale networks</a>. <i>Bioinformatics</i>. 2016 Dec 19. pii: btw731. DOI: 10.1093/bioinformatics/btw731.
+
 ## Contributors
 
-Irina Balaur, [EISBM](http://www.eisbm.org/), Lyon, France - idea, specified the translation rules, developed the code
+Irina Balaur, [EISBM](http://www.eisbm.org/), Lyon, France - specified the translation rules, developed the code
+Alexander Mazein, [EISBM](http://www.eisbm.org/), Lyon, France - idea, advice on the translation rules
 Mansoor Saqi, [EISBM](http://www.eisbm.org/), Lyon, France - advice on the translation rules
-Ana Barat, [RCSI](https://www.rcsi.com/dublin/], Dublin, Ireland - advice on the input dataset
 Artem Lysenko, [Rothamsted Research](https://www.rothamsted.ac.uk/), Hertfordshire, UK - advice on the Neo4j functionality
-Alexander Mazein, [EISBM](http://www.eisbm.org/), Lyon, France - advice on the translation rules
 Chris J. Rawlings, [Rothamsted Research](https://www.rothamsted.ac.uk/), Hertfordshire, UK - advice on the Neo4j functionality
-Heather J. Ruskin [Dublin City University], Dublin, Ireland - advice on the input dataset and on the translation rules
 Charles Auffray, [EISBM](http://www.eisbm.org/), Lyon, France - strategic advice  
 
 ## Useful links
