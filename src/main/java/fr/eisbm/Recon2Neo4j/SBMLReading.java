@@ -1,4 +1,4 @@
-package sbml2neo4j;
+package fr.eisbm.Recon2Neo4j;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
+import org.neo4j.graphdb.RelationshipType;
 import org.sbml.jsbml.Annotation;
 import org.sbml.jsbml.CVTerm;
 import org.sbml.jsbml.Compartment;
@@ -24,8 +26,6 @@ import org.sbml.jsbml.Species;
 import org.sbml.jsbml.SpeciesReference;
 import org.sbml.jsbml.ontology.Term;
 
-import sbml2neo4j.Recon2Graph.RelTypes;
-
 public class SBMLReading {
 
 	private final String RECON2_XML_FILE = "files/recon2.v02.xml";
@@ -35,6 +35,15 @@ public class SBMLReading {
 	List<Node> compoundSpeciesList = new ArrayList<Node>();
 	List<Relationship> vRelationsArray = new ArrayList<Relationship>();
 	ListOf<Compartment> _listCompartment;
+	
+	public static enum RelTypes implements RelationshipType {
+		Consumption, Production, Catalysis, Has_Parameter, Part_Of
+	}
+
+	public static enum LabelTypes implements Label {
+		Reaction, Protein, Compartment, Metabolite, Complex, ProteinCompound
+	}
+
 
 	@SuppressWarnings("deprecation")
 	public void readXMLFile() throws IOException {
@@ -92,23 +101,23 @@ public class SBMLReading {
 					}
 				}
 
-				Recon2Graph.LabelTypes speciesType = mappingSBOTerm2NodeType(species
+				LabelTypes speciesType = mappingSBOTerm2NodeType(species
 						.getSBOTermID());
 				// add species to neo4j graph
-				if (Recon2Graph.LabelTypes.Metabolite == speciesType) {
+				if (LabelTypes.Metabolite == speciesType) {
 					speciesHashMap.put(
 							species.getId(),
-							Recon2Graph.getGraphInstance().createNode(
-									Recon2Graph.LabelTypes.Metabolite));
+							App.getGraphInstance().createNode(
+									LabelTypes.Metabolite));
 					speciesHashMap.get(species.getId()).setProperty(
 							"MetaboliteId", species.getId().trim());
 					speciesHashMap.get(species.getId()).setProperty(
 							"MetaboliteName", species.getName().trim());
-				} else if (Recon2Graph.LabelTypes.Protein == speciesType) {
+				} else if (LabelTypes.Protein == speciesType) {
 					speciesHashMap.put(
 							species.getId(),
-							Recon2Graph.getGraphInstance().createNode(
-									Recon2Graph.LabelTypes.Protein));
+							App.getGraphInstance().createNode(
+									LabelTypes.Protein));
 					speciesHashMap.get(species.getId()).setProperty(
 							"ProteinId", species.getId().trim());
 					speciesHashMap.get(species.getId()).setProperty(
@@ -117,11 +126,11 @@ public class SBMLReading {
 							"Identifiers", szIdentifiers);
 					speciesHashMap.get(species.getId()).setProperty(
 							"UniprotId", szUniprotIdFullString);
-				} else if (Recon2Graph.LabelTypes.Complex == speciesType) {
+				} else if (LabelTypes.Complex == speciesType) {
 					speciesHashMap.put(
 							species.getId(),
-							Recon2Graph.getGraphInstance().createNode(
-									Recon2Graph.LabelTypes.Complex));
+							App.getGraphInstance().createNode(
+									LabelTypes.Complex));
 					speciesHashMap.get(species.getId()).setProperty(
 							"ComplexId", species.getId().trim());
 					speciesHashMap.get(species.getId()).setProperty(
@@ -132,8 +141,8 @@ public class SBMLReading {
 							"UniprotId", szUniprotIdFullString);
 
 					for (String eUniprotIdStr : szUniprotIdList) {
-						Node _node = Recon2Graph.getGraphInstance().createNode(
-								Recon2Graph.LabelTypes.ProteinCompound);
+						Node _node = App.getGraphInstance().createNode(
+								LabelTypes.ProteinCompound);
 						_node.setProperty("UniprotId", eUniprotIdStr);
 						_node.createRelationshipTo(
 								speciesHashMap.get(species.getId()),
@@ -173,8 +182,8 @@ public class SBMLReading {
 
 				reactionHashMap.put(
 						reaction.getId(),
-						Recon2Graph.getGraphInstance().createNode(
-								Recon2Graph.LabelTypes.Reaction));
+						App.getGraphInstance().createNode(
+								LabelTypes.Reaction));
 				reactionHashMap.get(reaction.getId()).setProperty("ReactionId",
 						reaction.getId().trim());
 				reactionHashMap.get(reaction.getId()).setProperty(
@@ -269,15 +278,15 @@ public class SBMLReading {
 						.getLabels().iterator();
 				String szSpeciesLabel = it.next().toString();
 
-				if (szSpeciesLabel.equals(Recon2Graph.LabelTypes.Protein
+				if (szSpeciesLabel.equals(LabelTypes.Protein
 						.toString())) {
 					proteinNo++;
 				}
-				if (szSpeciesLabel.equals(Recon2Graph.LabelTypes.Metabolite
+				if (szSpeciesLabel.equals(LabelTypes.Metabolite
 						.toString())) {
 					metaboliteNo++;
 				}
-				if (szSpeciesLabel.equals(Recon2Graph.LabelTypes.Complex
+				if (szSpeciesLabel.equals(LabelTypes.Complex
 						.toString())) {
 					complexNo++;
 				}
@@ -294,16 +303,16 @@ public class SBMLReading {
 				if (vRelationsArray.get(i).getType().name()
 						.equals(RelTypes.Consumption.toString())) {
 
-					if (szStartNodeLabel.equals(Recon2Graph.LabelTypes.Protein
+					if (szStartNodeLabel.equals(LabelTypes.Protein
 							.toString())) {
 						nConsumptionProtein++;
 					}
 					if (szStartNodeLabel
-							.equals(Recon2Graph.LabelTypes.Metabolite
+							.equals(LabelTypes.Metabolite
 									.toString())) {
 						nConsumptionMetabolite++;
 					}
-					if (szStartNodeLabel.equals(Recon2Graph.LabelTypes.Complex
+					if (szStartNodeLabel.equals(LabelTypes.Complex
 							.toString())) {
 						nConsumptionComplex++;
 					}
@@ -311,15 +320,15 @@ public class SBMLReading {
 				}
 				if (vRelationsArray.get(i).getType().name()
 						.equals(RelTypes.Production.toString())) {
-					if (szEndNodeLabel.equals(Recon2Graph.LabelTypes.Protein
+					if (szEndNodeLabel.equals(LabelTypes.Protein
 							.toString())) {
 						nProductionProtein++;
 					}
-					if (szEndNodeLabel.equals(Recon2Graph.LabelTypes.Metabolite
+					if (szEndNodeLabel.equals(LabelTypes.Metabolite
 							.toString())) {
 						nProductionMetabolite++;
 					}
-					if (szEndNodeLabel.equals(Recon2Graph.LabelTypes.Complex
+					if (szEndNodeLabel.equals(LabelTypes.Complex
 							.toString())) {
 						nProductionComplex++;
 					}
@@ -328,16 +337,16 @@ public class SBMLReading {
 
 				if (vRelationsArray.get(i).getType().name()
 						.equals(RelTypes.Catalysis.toString())) {
-					if (szStartNodeLabel.equals(Recon2Graph.LabelTypes.Protein
+					if (szStartNodeLabel.equals(LabelTypes.Protein
 							.toString())) {
 						nCatalysisProtein++;
 					}
 					if (szStartNodeLabel
-							.equals(Recon2Graph.LabelTypes.Metabolite
+							.equals(LabelTypes.Metabolite
 									.toString())) {
 						nCatalysisMetabolite++;
 					}
-					if (szStartNodeLabel.equals(Recon2Graph.LabelTypes.Complex
+					if (szStartNodeLabel.equals(LabelTypes.Complex
 							.toString())) {
 						nCatalysisComplex++;
 					}
@@ -406,15 +415,15 @@ public class SBMLReading {
 
 	}
 
-	private Recon2Graph.LabelTypes mappingSBOTerm2NodeType(String szSBOTermIdStr) {
+	private LabelTypes mappingSBOTerm2NodeType(String szSBOTermIdStr) {
 		Term _term = org.sbml.jsbml.SBO.getTerm(szSBOTermIdStr);
-		Recon2Graph.LabelTypes speciesLabel = Recon2Graph.LabelTypes.Protein;
+		LabelTypes speciesLabel = LabelTypes.Protein;
 		if (_term.getName().trim().equals("polypeptide chain")) {
-			speciesLabel = Recon2Graph.LabelTypes.Protein;
+			speciesLabel = LabelTypes.Protein;
 		} else if (_term.getName().trim().equals("protein complex")) {
-			speciesLabel = Recon2Graph.LabelTypes.Complex;
+			speciesLabel = LabelTypes.Complex;
 		} else if (_term.getName().trim().equals("simple chemical")) {
-			speciesLabel = Recon2Graph.LabelTypes.Metabolite;
+			speciesLabel = LabelTypes.Metabolite;
 		} else {
 			System.out.println(szSBOTermIdStr + " " + _term.toString());
 		}

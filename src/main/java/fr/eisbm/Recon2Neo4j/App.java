@@ -34,7 +34,7 @@
 
  */
 
-package sbml2neo4j;
+package fr.eisbm.Recon2Neo4j;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +45,7 @@ import org.neo4j.graphdb.RelationshipType;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 
-public class Recon2Graph
+public class App
 
 {
 	// START SNIPPET: vars
@@ -58,16 +58,6 @@ public class Recon2Graph
 
 	// END SNIPPET: vars
 
-	// START SNIPPET: createReltype
-
-	public static enum RelTypes implements RelationshipType {
-		Consumption, Production, Catalysis, Has_Parameter, Part_Of
-	}
-
-	public static enum LabelTypes implements Label {
-		Reaction, Protein, Compartment, Metabolite, Complex, ProteinCompound
-	}
-
 	public static GraphDatabaseService getGraphInstance() {
 		return graphDb;
 	}
@@ -75,7 +65,7 @@ public class Recon2Graph
 	// END SNIPPET: createReltype
 
 	public static void main(final String[] args) {
-		Recon2Graph metabolicFramework = new Recon2Graph();
+		App metabolicFramework = new App();
 
 		metabolicFramework.createDb();
 
