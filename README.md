@@ -32,8 +32,6 @@ After cloning the repository and getting into its directory:
 
 `mvn install`
 
-The executable jar can be directly downloaded from the [Release page](https://github.com/ibalaur/EpiGeNet/releases).
-
 ## How to contribute
 
 If you have any suggestions or want to report a bug, don't hesitate to create an [issue](https://github.com/ibalaur/EpiGeNet/issues). Pull requests and all forms of contribution will be warmly welcomed.
@@ -45,10 +43,15 @@ Balaur I., Mazein A., Saqi M., Lysenko A., Rawlings C.J. and Auffray C. (2016), 
 ## Contributors
 
 Irina Balaur, [EISBM](http://www.eisbm.org/), Lyon, France - specified the translation rules, developed the code
+
 Alexander Mazein, [EISBM](http://www.eisbm.org/), Lyon, France - idea, advice on the translation rules
+
 Mansoor Saqi, [EISBM](http://www.eisbm.org/), Lyon, France - advice on the translation rules
+
 Artem Lysenko, [Rothamsted Research](https://www.rothamsted.ac.uk/), Hertfordshire, UK - advice on the Neo4j functionality
+
 Chris J. Rawlings, [Rothamsted Research](https://www.rothamsted.ac.uk/), Hertfordshire, UK - advice on the Neo4j functionality
+
 Charles Auffray, [EISBM](http://www.eisbm.org/), Lyon, France - strategic advice  
 
 ## Useful links
