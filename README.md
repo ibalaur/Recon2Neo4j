@@ -4,7 +4,7 @@ The Recon2Neo4j Framework uses the neo4j graph platform for the management of da
 
 <table>
     <tr>
-	<td style="width: 300px;" align="center"><img src="/figure/metabolic_framework_context.jpg" width="250"/></td>
+	<td style="width: 400px;" align="center"><img src="/figure/metabolic_framework_context.jpg" width="300"/></td>
     </tr>
 </table>
 
